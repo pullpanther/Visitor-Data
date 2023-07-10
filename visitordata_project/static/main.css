@@ -1,0 +1,13 @@
+body {
+  background-color: CadetBlue;
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin-left: 18px;
+}
+
+pre {
+    display: inline-block;
+    font-size: 15px;
+    padding: 15px;
+    background-color: rgba(32,32,32,.5);
+}

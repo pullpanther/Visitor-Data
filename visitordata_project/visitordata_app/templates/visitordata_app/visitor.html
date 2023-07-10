@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Django Visitor Data App</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+  </head>
+
+  <body>
+<h1>Visitor Data</h1>
+    <h2>IP: {{ ip }}</h2>
+    <p><br></p>
+
+    <h3>{{ ua }}</h3>
+    {% if ua.is_mobile %}<p><b>Mobile phone</b></p>
+    {% elif ua.is_tablet %}<p><b>Tablet</b></p>{% endif %}
+    <p>Your device is {% if not ua.is_touch_capable %}<b>not</b> {% endif %}touch capable.</p>
+    {% if is_bot %}<p>YOU ARE A BOT!</p>{% endif %}
+    <p><small>(
+    {% for x in ua.device %}
+    {{ x }}
+    {% endfor %})</small>
+    </p>
+    <p><br><br></p>
+
+    <h3>IP Geolocation</h3>
+    <p>City: {{ geo_data.city }}</p>
+    <p>Region: {{ geo_data.region }}</p>
+    <p>Country: {{ geo_data.country }}</p>
+    <p>Connection type: {{ geo_data.connection.connection_type }}</p>
+    <p>ISP: {{ geo_data.connection.isp_name }}</p>
+    <p><img src="{{ geo_data.flag.png }}" width="125"></p>
+    <small>* your location is based on your IP Address and provided by your ISP.<br>
+    Location may not be accurate.</small>
+
+    <p><br></p>
+
+    <hr>
+    <p></p>
+    <p><small>
+     REMOTE_ADDR: {{ meta.REMOTE_ADDR }}<br>
+     HTTP_USER_AGENT: {{ meta.HTTP_USER_AGENT }}<br>
+     HTTP_REFERER: {{ meta.HTTP_REFERER }}<br>
+     SCRIPT_URI: {{ meta.SCRIPT_URI }}<br>
+     HTTP_ACCEPT_LANGUAGE: {{ meta.HTTP_ACCEPT_LANGUAGE  }}<br>
+    </small></p>
+    <p></p>
+
+</body>
+</html>
