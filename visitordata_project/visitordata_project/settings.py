@@ -136,3 +136,13 @@ STATIC_ROOT = BASE_DIR / 'static_in_production'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# sessions
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # default
+# SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+# SESSION_FILE_PATH = "tmp/sessions"

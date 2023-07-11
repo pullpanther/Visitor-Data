@@ -11,7 +11,10 @@ def visitor(request):
 
     ip = get_ip(request)
 
-    geo_data = get_geolocation_data(request)
+    geo_data = request.session.get("geolocation")
+    if not geo_data:
+        geo_data = get_geolocation_data(request)
+        request.session["geolocation"] = geo_data
 
     context = {"meta": meta,
                "ua": ua,
