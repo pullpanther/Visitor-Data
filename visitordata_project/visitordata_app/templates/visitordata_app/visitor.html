@@ -34,8 +34,14 @@
     <p>Connection type: {{ geo_data.connection.connection_type }}</p>
     <p>ISP: {{ geo_data.connection.isp_name }}</p>
     <p><img src="{{ geo_data.flag.png }}" width="125"></p>
-    <small>* your location is based on your IP Address and provided by your ISP.<br>
-    Location may not be accurate.</small>
+    <small>
+    * your location is based on your IP Address {{ geo_data.ip_address }}, provided by your ISP.<br>
+    Location may not be accurate.
+        {% if is_from_session %}
+        <br>Data from session -
+        <a href="{% url 'delete_session' %}?item=geolocation&next=homepage">delete session data!</a>
+        {% endif %}
+    </small>
 
     <p><br></p>
 

@@ -5,6 +5,10 @@ body {
   margin-left: 18px;
 }
 
+a {
+    color: white;
+}
+
 pre {
     display: inline-block;
     font-size: 15px;
