@@ -18,7 +18,8 @@ def visitor(request):
         is_from_session = False
         request.session["geolocation"] = geo_data
 
-    context = {"meta": meta,
+    context = {"page": "homepage",
+               "meta": meta,
                "ua": ua,
                "ip": ip,
                "geo_data": geo_data,

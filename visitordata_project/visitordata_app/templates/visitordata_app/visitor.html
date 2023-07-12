@@ -37,9 +37,9 @@
     <small>
     * your location is based on your IP Address {{ geo_data.ip_address }}, provided by your ISP.<br>
     Location may not be accurate.
-        {% if is_from_session %}
-        <br>Data from session -
-        <a href="{% url 'delete_session' %}?item=geolocation&next=homepage">delete session data!</a>
+        {% if ip != geo_data.ip_address %}
+        <br>Old Geolocation Data from session -
+        <a href="{% url 'delete_session' %}?item=geolocation&next={{ page }}">delete session data!</a>
         {% endif %}
     </small>
 
